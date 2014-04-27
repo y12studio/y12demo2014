@@ -1,0 +1,525 @@
+---
+build.dart --machine --full
+
+build.dart finished [748 ms]
+
+---
+build.dart --machine --changed=pubspec.lock
+
+build.dart finished [863 ms]
+
+---
+build.dart --machine --changed=bin\server.dart
+
+build.dart finished [693 ms]
+
+---
+build.dart --machine --changed=pubspec.yaml
+
+build.dart finished [864 ms]
+
+---
+build.dart --machine --full
+
+build.dart finished [958 ms]
+
+---
+build.dart --machine --changed=pubspec.yaml
+
+build.dart finished [894 ms]
+
+---
+build.dart --machine --changed=pubspec.yaml
+[{"method":"warning","params":{"file":"web/dartsurvey1404.html","message":"To run a polymer application you need to include the following HTML import: <link rel=\"import\" href=\"packages/polymer/polymer.html\">. This will include the common polymer logic needed to boostrap your application. The old style of initializing polymer with boot.js or initPolymer are now deprecated. ","line":15,"charStart":457,"charEnd":463}}]
+build.dart finished [1107 ms]
+
+---
+build.dart --machine --changed=bin\server.dart
+[{"method":"warning","params":{"file":"web/dartsurvey1404.html","message":"To run a polymer application you need to include the following HTML import: <link rel=\"import\" href=\"packages/polymer/polymer.html\">. This will include the common polymer logic needed to boostrap your application. The old style of initializing polymer with boot.js or initPolymer are now deprecated. ","line":15,"charStart":457,"charEnd":463}}]
+build.dart finished [970 ms]
+
+---
+build.dart --machine --changed=bin\server.dart
+[{"method":"warning","params":{"file":"web/dartsurvey1404.html","message":"To run a polymer application you need to include the following HTML import: <link rel=\"import\" href=\"packages/polymer/polymer.html\">. This will include the common polymer logic needed to boostrap your application. The old style of initializing polymer with boot.js or initPolymer are now deprecated. ","line":15,"charStart":457,"charEnd":463}}]
+build.dart finished [991 ms]
+
+---
+build.dart --machine --changed=bin\server.dart
+[{"method":"warning","params":{"file":"web/dartsurvey1404.html","message":"To run a polymer application you need to include the following HTML import: <link rel=\"import\" href=\"packages/polymer/polymer.html\">. This will include the common polymer logic needed to boostrap your application. The old style of initializing polymer with boot.js or initPolymer are now deprecated. ","line":15,"charStart":457,"charEnd":463}}]
+build.dart finished [985 ms]
+
+---
+build.dart --machine --full
+[{"method":"warning","params":{"file":"web/dartsurvey1404.html","message":"To run a polymer application you need to include the following HTML import: <link rel=\"import\" href=\"packages/polymer/polymer.html\">. This will include the common polymer logic needed to boostrap your application. The old style of initializing polymer with boot.js or initPolymer are now deprecated. ","line":15,"charStart":457,"charEnd":463}}]
+build.dart finished [1103 ms]
+
+---
+build.dart --machine --changed=web\dartsurvey1404.html
+
+build.dart finished [998 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [1000 ms]
+
+---
+build.dart --machine --changed=web\dartsurvey1404.html
+
+build.dart finished [950 ms]
+
+---
+build.dart --machine --removed=build\bin\server.dart --removed=build\web\clickcounter.dart --removed=build\web\...
+
+build.dart finished [1014 ms]
+
+---
+build.dart --machine --changed=build\bin\server.dart --changed=build\web\clickcounter.dart --changed=build\web\...
+
+build.dart finished [976 ms]
+
+---
+build.dart --machine --changed=bin\server1404.dart --removed=bin\server.dart
+
+build.dart finished [955 ms]
+
+---
+build.dart --machine --changed=bin\server1404.dart
+
+build.dart finished [935 ms]
+
+---
+build.dart --machine --changed=web\dartsurvey1404.css
+
+build.dart finished [984 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [991 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [972 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [986 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [980 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [1005 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [996 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [995 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [1123 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [950 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [974 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1004 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [987 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1008 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [981 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [968 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [971 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [984 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [961 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [983 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [957 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1028 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1001 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [1053 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [999 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [964 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [975 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [974 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [1023 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [977 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [976 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [1010 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [992 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [999 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [988 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [980 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [995 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [985 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [1011 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1022 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1033 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1018 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [994 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1025 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [999 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1012 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [1016 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [994 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1011 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [973 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1001 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [990 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [986 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [998 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [978 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [987 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [997 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [948 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [970 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [970 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [988 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1042 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1014 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1008 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [997 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [981 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [965 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [950 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [970 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [955 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [979 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [981 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [962 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [993 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [977 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1026 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [995 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [980 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [994 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1005 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [991 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [994 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [999 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [1008 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [1019 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+[{"method":"warning","params":{"file":"web/clickcounter.html","message":"Unexpected end tag (template). Ignored.","line":29,"charStart":848,"charEnd":859}}]
+[{"method":"warning","params":{"file":"web/clickcounter.html","message":"Unexpected end tag (polymer-element). Ignored.","line":31,"charStart":940,"charEnd":958}}]
+[{"method":"warning","params":{"file":"web/clickcounter.html","message":"Expected closing tag. Unexpected end of file.","line":4,"charStart":78,"charEnd":82}}]
+[{"method":"warning","params":{"file":"web/clickcounter.html","message":"Unexpected end tag (template). Ignored.","line":29,"charStart":848,"charEnd":859}}]
+[{"method":"warning","params":{"file":"web/clickcounter.html","message":"Unexpected end tag (polymer-element). Ignored.","line":31,"charStart":940,"charEnd":958}}]
+[{"method":"warning","params":{"file":"web/clickcounter.html","message":"Expected closing tag. Unexpected end of file.","line":4,"charStart":78,"charEnd":82}}]
+build.dart finished [1018 ms]
+

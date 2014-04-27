@@ -1,0 +1,9 @@
+name: DartSurvey1404
+description: A sample Polymer application
+dependencies:
+  bloodless: any
+  crypto: any
+  polymer: 0.10.0-pre.9
+transformers:
+- polymer:
+    entry_points: web/dartsurvey1404.html

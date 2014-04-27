@@ -1,0 +1,32 @@
+<polymer-element name="click-counter" attributes="count">
+  <template>
+   
+   <h2>Survey1/h2>
+    <form on-change='{{updateModel}}'>
+     <template repeat="{{item in survey1}}">
+            <div>{{item.question}}
+            <template repeat="{{op in item.options}}">
+                <input type="radio" name="{{item.id}}" value="{{op}}">{{op}}
+            </template>
+            </div>
+    </template>
+    
+    <hr/>
+    <h2>Survey2</h2>
+     <template repeat="{{item in survey2}}">
+            <div>{{item.question}}
+            <template repeat="{{op in item.options}}">
+                <input type="radio" name="{{item.id}}" value="{{op}}">{{op}}
+            </template>
+            </div>
+    </template>
+    </form>
+  
+    <div>
+      <button on-click="{{increment}}">送出</button><br>
+      <span>(click count: {{count}})</span>
+    </div>
+  </template>
+  <script type="application/dart;component=1" src="clickcounter.dart"></script>
+</polymer-element>
+
