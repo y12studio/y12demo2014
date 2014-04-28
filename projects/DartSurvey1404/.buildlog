@@ -63,3 +63,43 @@ build.dart --machine --changed=web\clickcounter.dart
 
 build.dart finished [1501 ms]
 
+---
+build.dart --machine --changed=lib\simplot.dart --changed=lib\src\axis_config.dart --changed=lib\src\date_time....
+
+build.dart finished [1493 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [1471 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1590 ms]
+
+---
+build.dart --machine --changed=README.md
+
+build.dart finished [1508 ms]
+
+---
+build.dart --machine --changed=README.md
+
+build.dart finished [1546 ms]
+
+---
+build.dart --machine --changed=README.md
+
+build.dart finished [1527 ms]
+
+---
+build.dart --machine --changed=lib\LICENSE-simplot.md
+
+build.dart finished [1559 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1615 ms]
+
