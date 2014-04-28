@@ -1,0 +1,65 @@
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1574 ms]
+
+---
+build.dart --machine --full
+
+build.dart finished [1564 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.html
+
+build.dart finished [1557 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1555 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1501 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1491 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1564 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1559 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1532 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1570 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1610 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1524 ms]
+
+---
+build.dart --machine --changed=web\clickcounter.dart
+
+build.dart finished [1501 ms]
+

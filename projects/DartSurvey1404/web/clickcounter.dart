@@ -1,11 +1,11 @@
 import 'package:polymer/polymer.dart';
 import 'dart:html';
 import 'dart:convert';
-import 'package:js/js.dart' as js;
-import 'package:chart/chart.dart';
 import 'package:quiver/async.dart';
-import 'package:simplot/simplot.dart';
+import 'dart:collection';
+import 'packages/simplot/simplot.dart';
 
+//
 class SurveyItem {
   String id;
   String question;
@@ -30,6 +30,9 @@ class ClickCounter extends PolymerElement {
   String op;
 
   List surveys = toObservable([]);
+  var canvas;
+  var ctx;
+  var canvasContainer;
 
   ClickCounter.created(): super.created() {
     FutureGroup group = new FutureGroup();
@@ -39,85 +42,125 @@ class ClickCounter extends PolymerElement {
       this.surveys.add(JSON.decode(results[0]).map((m) => new SurveyItem.forMap(m)));
       this.surveys.add(JSON.decode(results[1]).map((m) => new SurveyItem.forMap(m)));
     });
+
+    // get canvas and context
+   canvasContainer = shadowRoot.querySelector('chart');
+    canvas = shadowRoot.querySelector('canvas');
+    ctx = canvas.getContext('2d') as CanvasRenderingContext2D // makes type checker happy
+        ..fillStyle = "#afafaf";
   }
 
   enteredView() {
     super.enteredView();
-    // js.context in polymer issue?
-    //_drawGoogleChartVisualization();
-
-    // dart2js color issue.
-    //_drawChartJs();
-    
-    // failure dart2js
-    //_drawSimplot();
+    //_drawCanvas();
+    _drawSimplot();
   }
   
+  // simplot function
+  // 
   _drawSimplot(){
-    // failure dart2js
-    var data = [1, 3, 2, 5, 6.3, 17, 4];
-    var elem = this.shadowRoot.querySelector("#simPlotQuad");
-   // var elem2 = $['#simPlotQuad'];
-    var dataPlot = plot(data,shadow:elem);
-  }
+      // failure dart2js
+      var data = [1, 3, 2, 5, 6.3, 17, 4];
+      var elem = this.shadowRoot.querySelector("#simPlotQuad");
+      // failure dart2js
+      var dataPlot = plot(data,shadow:elem);
+      //var dataPlot = plotInShadow(data);
+    }
+  
+  // test
+  Plot2D plotInShadow(List y1, {
+      List xdata: null,
+      List y2: null,
+      List y3: null,
+      List y4: null,
+      String style1: 'linepts',
+      String style2: null,
+      String style3: null,
+      String style4: null,
+      String color1: 'black',
+      String color2: 'ForestGreen',
+      String color3: 'Navy',
+      String color4: 'FireBrick',
+      int linewidth: 2,
+      int range: 1,
+      int index: 1,
+      Element shadow: null,
+      String container: '#simPlotQuad'}) {
 
-  // ref https://github.com/dart-lang/js-interop/blob/master/example/google-chart/bubblechart.dart
-  _drawGoogleChartVisualization() {
-    // failure
-    var google = js.context.google;
-    var gviz = google.visualization;
+    if (y1 == null || y1.isEmpty) throw new ArgumentError("No data to be plotted.");
 
-    // Create and populate the data table.
-    var listData = [['ID', 'Life Expectancy', 'Fertility Rate', 'Region', 'Population'], ['CAN', 80.66, 1.67, 'North America', 33739900], ['DEU', 79.84, 1.36, 'Europe', 81902307], ['DNK', 78.6, 1.84, 'Europe', 5523095], ['EGY', 72.73, 2.78, 'Middle East', 79716203], ['GBR', 80.05, 2, 'Europe', 61801570], ['IRN', 72.49, 1.7, 'Middle East', 73137148], ['IRQ', 68.09, 4.77, 'Middle East', 31090763], ['ISR', 81.55, 2.96, 'Middle East', 7485600], ['RUS', 68.6, 1.54, 'Europe', 141850000], ['USA', 78.09, 2.05, 'North America', 307007000]];
+    final bool large = true;
+    final int _gphSize = 600;
+    final int _border = 80;
+    final int _pwidth = _gphSize;
+    final int _scalePlot = large ? 2 : range;
+    final int _pheight = range == 1 ? _gphSize : (_gphSize * 1.5 ~/ _scalePlot);
+    // Testing support for shadow DOM.
+    Element graphContainer = canvasContainer;
+    var _plotCanvas = canvas;
+    _plotCanvas.attributes = ({
+      "id": "simPlot$index",
+      "class": "simPlot",
+      "width": "$_pwidth",
+      "height": "$_pheight",
+    });
+    ctx
+      ..fillStyle = 'white'
+      ..fillRect(0, 0, _pwidth, _pheight)
+      ..fillStyle = 'black';
 
-    var arrayData = js.array(listData);
-
-    var tableData = gviz.arrayToDataTable(arrayData);
-
-    var options = js.map({
-      'title': 'Correlation between life expectancy, ' 'fertility rate and population of some world countries (2010)',
-      'hAxis': {
-        'title': 'Life Expectancy'
-      },
-      'vAxis': {
-        'title': 'Fertility Rate'
-      },
-      'bubble': {
-        'textStyle': {
-          'fontSize': 11
-        }
+    //If no xdata was passed, create a row vector
+    //based on the length of y1.
+    if (xdata == null) {
+      if (style1 == 'data') {
+        xdata = new List.generate(y1.length, (var index) =>
+            index + 1, growable:false);
+      } else {
+        xdata = new List.generate(y1.length, (var index) =>
+            index, growable:false);
       }
-    });
+    } else if (style1 == 'data') {
+      xdata = new List.generate(y1.length, (var index) =>
+          index + xdata[0], growable:false);
+    }
 
-    // Create and draw the visualization.
-    var chart = new js.Proxy(gviz.BubbleChart, querySelector('#visualization'));
-    chart.draw(tableData, options);
+    //Build a HashMap of the all the y axis data.
+    var _ydata = new LinkedHashMap();
+    _ydata["y1"] = y1;
+    _ydata["y2"] = y2;
+    _ydata["y3"] = y3;
+    _ydata["y4"] = y4;
+
+    //Build a HashMap of the all the plot style for each data set.
+    var _style = new LinkedHashMap();
+    _style["y1"] = style1;
+    _style["y2"] = style2 == null ? style1 : style2;
+    _style["y3"] = style3 == null ? style1 : style3;
+    _style["y4"] = style4 == null ? style1 : style4;
+
+    //Build a HashMap of the corresponding colors for the plots.
+    var _color = new LinkedHashMap();
+    _color["y1"] = color1;
+    _color["y2"] = color2;
+    _color["y3"] = color3;
+    _color["y4"] = color4;
+
+    //Return the Plot2D object.
+    return new Plot2D(ctx, _ydata, xdata, _color, _style, _pwidth, _pheight,
+        linewidth);
   }
 
-  _drawChartJs() {
-    Line chart2 = new Line({
-      'labels': ["1", "2", "3", "4", "5", "6"],
-      'datasets': [{
-          'fillColor': "rgba(123,244,220,0.5)",
-          'strokeColor': "rgba(220,220,220,1)",
-          'pointColor': "rgba(220,220,220,1)",
-          'pointStrokeColor': "#afafaf",
-          'data': [[null, 20, 16], null, [null, 10, null], [null, 10, null], 24, [null, 17, null, 25, null, 20, 14, null, 23, 25, 40, 20, null]]
-        }]
-
-    }, {
-      'animationEasing': 'easeOutElastic',
-      'animation': false,
-      'bezierCurve': true,
-    });
-
-    DivElement container2 = new DivElement();
-    container2.style.height = '400px';
-    container2.style.width = '100%';
-    $['chart'].children.add(container2);
-    chart2.show(container2);
+  void _drawCanvas() {
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.beginPath();
+    int index = 0;
+    int spacing = 10;
+    for (num dataPoint in [1, 2, 3, 4, 15, 10]) {
+      ctx.lineTo(index * spacing, canvas.height / 2 + dataPoint * spacing);
+      index++;
+    }
+    ctx.stroke();
   }
-
 
   void updateModel(Event e, var detail, Node target) {
     var input = (e.target as InputElement);
