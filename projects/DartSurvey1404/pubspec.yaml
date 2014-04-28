@@ -2,8 +2,13 @@ name: DartSurvey1404
 description: A sample Polymer application
 dependencies:
   bloodless: any
+  chart: any
   crypto: any
+  js: any
   polymer: 0.10.0-pre.9
+  quiver: any
+  simplot:
+    git: git://github.com/scribeGriff/simplot.git
 transformers:
 - polymer:
     entry_points: web/dartsurvey1404.html
