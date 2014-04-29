@@ -9,10 +9,18 @@
   <body>
     <h1>DartAngularHello</h1>
     
+    <div my-googlechart></div>
+    
+    <div my-hello>
     <p>Hello world from AngularDart!</p>
-    <h3>XXX Hello {{name}} !</h3>
-    Name: <input type="text" ng-model="name">
-   
+    <h3>Hello {{hello.name|capitalize}} Age={{hello.age}}!</h3>
+    Name: <input type="text" ng-model="hello.name">
+    <h3>Age: {{hello.age}}</h3>
+      Age: <input type="number" ng-model="hello.age">
+     <button ng-click="hello.foo()">foo</button>
+    </div>
+    
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script src="packages/shadow_dom/shadow_dom.min.js"></script>
     <script type="application/dart" src="main.dart"></script>
     <script type="text/javascript" src="packages/browser/dart.js"></script>
