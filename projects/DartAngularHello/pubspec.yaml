@@ -1,0 +1,12 @@
+name: DartAngularHello
+description: A sample web application
+dependencies:
+  angular: any
+  angular_ui: any
+  browser: any
+  di: any
+  shadow_dom: any
+transformers:
+- angular
+- $dart2js:
+    minify: true
