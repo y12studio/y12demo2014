@@ -6,4 +6,3 @@ import 'package:angular/application_factory.dart';
 void main() {
   applicationFactory().run();
 }
-

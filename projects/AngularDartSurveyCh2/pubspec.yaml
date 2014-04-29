@@ -1,0 +1,12 @@
+name: AngularDartSurveyCh2
+description: Angular Dart Survey Examples application
+dependencies:
+  angular: 0.10.0
+  bloodless: any
+  browser: any
+  quiver: any
+  shadow_dom: any
+dev_dependencies:
+  unittest: any
+transformers:
+- angular
