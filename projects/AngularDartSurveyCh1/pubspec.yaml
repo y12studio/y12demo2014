@@ -1,8 +1,8 @@
-name: DartAngularHello
+name: AngularDartSurveyCh1
 description: A sample web application
 dependencies:
   angular: 0.10.0
-  angular_ui: any
+  bloodless: any
   browser: any
   shadow_dom: any
 transformers:
