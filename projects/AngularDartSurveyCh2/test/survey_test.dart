@@ -10,6 +10,34 @@ import 'package:angular/mock/module.dart';
 
 import '../web/survey.dart';
 
+final String jsonTarget ="""
+[
+ {
+   "name":"SurveyName1",
+   "category":"Food",
+   "rating":10,
+   "questions":[
+        { "title":"QuestionTitle1",
+          "choices": ["Sure", "XX", "Y1","O1"]
+        },
+        { "title":"QuestionTitle12",
+          "choices": ["Sure", "YY", "Y2","O2"]
+        },
+        { "title":"QuestionTitle3",
+          "choices": ["Sure", "ZZ", "Y3","O3"]
+        }
+        ]
+ }]
+""";
+
+final String jsonTargetCa="""
+[
+  "Food",
+  "Game",
+  "Movie"
+]
+""";
+
 main() {
 
   setUp(() {
@@ -18,29 +46,32 @@ main() {
   });
   tearDown(tearDownInjector);
 
-  group('survery app module', () {
+  group('[GROUP]survery app module', () {
 
-    test('should load surveys', async(inject((Injector injector, MockHttpBackend backend) {
-      backend.expectGET('recipes.json').respond('[{"name": "test1"}]');
-      backend.expectGET('categories.json').respond('["c1"]');
+    test('[TEST]should load surveys', async(inject((Injector injector, MockHttpBackend backend) {
+      
+      backend.expectGET('categories.json').respond(jsonTargetCa);
+      backend.expectGET('surveys.json').respond(jsonTarget);
 
       var controller = injector.get(SurveyController);
-      expect(controller.surveys, isEmpty);
+      expect(controller.surveys, isNull);
 
       microLeap();
       backend.flush();
       microLeap();
+      
+      expect(controller.surveys.length, 1);
 
       expect(controller.surveys, isNot(isEmpty));
     })));
 
-    test('should select survey', async(inject((Injector injector,
+    test('[TEST]should select survey', async(inject((Injector injector,
                                                    MockHttpBackend backend) {
-          backend.expectGET('recipes.json').respond('[{"name": "test1"}]');
-          backend.expectGET('categories.json').respond('["c1"]');
-
+          backend.expectGET('categories.json').respond(jsonTargetCa);
+          backend.expectGET('surveys.json').respond(jsonTarget);
+            
           var controller = injector.get(SurveyController);
-          expect(controller.surveys, isEmpty);
+          expect(controller.surveys, isNull);
 
           microLeap();
           backend.flush();

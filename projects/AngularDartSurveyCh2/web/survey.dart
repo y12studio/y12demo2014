@@ -30,7 +30,6 @@ class SurveyController {
           print(results[0].data);
           categories = results[0].data;
           surveys = results[1].data.map((d)=> new Survey.fromJson(d)).toList();
-          //print(surveys.length);
         });
 
   }

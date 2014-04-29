@@ -3,3 +3,5 @@ packages/
 /pubspec.lock
 /build
 .buildlog
+npm-debug.log
+node_modules/
