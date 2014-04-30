@@ -4,7 +4,6 @@ dependencies:
   angular: 0.10.0
   bloodless: any
   browser: any
-  crypto: any
   quiver: any
   shadow_dom: any
 dev_dependencies:

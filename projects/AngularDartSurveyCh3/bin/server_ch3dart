@@ -14,7 +14,7 @@ handleResponseHeader() {
   app.request.response.headers.add("Access-Control-Allow-Origin", "*");
   app.chain.next();
 }
-
+  
 main() {
   app.setupConsoleLog();
   // mapping to build directory.
