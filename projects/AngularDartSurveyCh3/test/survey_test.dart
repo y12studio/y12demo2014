@@ -10,7 +10,7 @@ import 'package:angular/mock/module.dart';
 
 import '../web/survey.dart';
 
-final String jsonTarget ="""
+final String jsonTarget = """
 [
  {
    "name":"SurveyName1",
@@ -30,7 +30,7 @@ final String jsonTarget ="""
  }]
 """;
 
-final String jsonTargetCa="""
+final String jsonTargetCa = """
 [
   "Food",
   "Game",
@@ -49,7 +49,7 @@ main() {
   group('[GROUP]survery app module', () {
 
     test('[TEST]should load surveys', async(inject((Injector injector, MockHttpBackend backend) {
-      
+
       backend.expectGET('categories.json').respond(jsonTargetCa);
       backend.expectGET('surveys.json').respond(jsonTarget);
 
@@ -59,30 +59,29 @@ main() {
       microLeap();
       backend.flush();
       microLeap();
-      
+
       expect(controller.surveys.length, 1);
       expect(controller.surveys, isNot(isEmpty));
       var survey = controller.surveys[0];
       expect(survey.rating, 10);
-      
+
     })));
 
-    test('[TEST]should select survey', async(inject((Injector injector,
-                                                   MockHttpBackend backend) {
-          backend.expectGET('categories.json').respond(jsonTargetCa);
-          backend.expectGET('surveys.json').respond(jsonTarget);
-            
-          var controller = injector.get(SurveyController);
-          expect(controller.surveys, isNull);
+    test('[TEST]should select survey', async(inject((Injector injector, MockHttpBackend backend) {
+      backend.expectGET('categories.json').respond(jsonTargetCa);
+      backend.expectGET('surveys.json').respond(jsonTarget);
 
-          microLeap();
-          backend.flush();
-          microLeap();
+      var controller = injector.get(SurveyController);
+      expect(controller.surveys, isNull);
 
-          var survey = controller.surveys[0];
-          controller.selectSurvey(survey);
-          expect(controller.selectedSurvey, same(survey));
-        })));
-    
+      microLeap();
+      backend.flush();
+      microLeap();
+
+      var survey = controller.surveys[0];
+      controller.selectSurvey(survey);
+      expect(controller.selectedSurvey, same(survey));
+    })));
+
   });
 }

@@ -1,86 +1,99 @@
 <!DOCTYPE html>
 
 <html ng-app>
-  <head>
-    <meta charset="utf-8">
-    <title>AngularDart Survey CH3</title>
-    <link rel="stylesheet" href="survey.css">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-        <h3 class="text-muted">AngularDart Survey CH3</h3>
-      </div>
+<head>
+<meta charset="utf-8">
+<title>AngularDart Survey CH3</title>
+<link rel="stylesheet" href="survey.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+  href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet"
+  href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <ul class="nav nav-pills pull-right">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <h3 class="text-muted">AngularDart Survey CH3</h3>
+    </div>
     <div class="jumbotron" survey>
-    <h3>Survey List</h3>
-     <div class="row" style="text-align: left">
-    <div class="col-md-12">
-    
-      <div class="pointer" style="margin: 5px"
-          ng-repeat="survey in ctrl.surveys"
-          ng-click="ctrl.selectSurvey(survey)">
-        <span class="label label-success">*</span>{{survey.name}}
+      <h3>Survey List</h3>
+      <div class="row" style="text-align: left">
+        <div class="col-md-12">
+
+          <div class="pointer" style="margin: 5px"
+            ng-repeat="survey in ctrl.surveys"
+            ng-click="ctrl.selectSurvey(survey)">
+            <span class="label label-success">*</span>{{survey.name}}
+          </div>
+        </div>
+      </div>
+      <h3>Survey Details</h3>
+      <div class="row" style="text-align: left">
+        <div class="col-md-12">
+          <h3>
+            Name: <span class="label label-success">{{ctrl.selectedSurvey.name}}</span>
+          </h3>
+          <h3>Category: {{ctrl.selectedSurvey.category}}</h3>
+          <h4>
+            <strong> Rating: </strong><span class="label label-success">{{ctrl.selectedSurvey.rating}}</span>
+          </h4>
+
+          <div ng-repeat="question in ctrl.selectedSurvey.questions">
+            <p>
+              <b>{{question.title}}</b><span class="label label-info">{{question.choices.length}}</span>
+            </p>
+            <p>
+              <span ng-repeat="choice in question.choices"><input
+                type="radio" name="{{question.qid}}" value="{{choice}}">{{choice}}</span>
+            </p>
+          </div>
+
+        </div>
       </div>
     </div>
-    </div>
-    <h3>Survey Details</h3>
-    <div class="row" style="text-align: left">
-    <div class="col-md-12">
-    <h3>Name: <span class="label label-success">{{ctrl.selectedSurvey.name}}</span></h3>
-    <h3>Category: {{ctrl.selectedSurvey.category}}</h3>
-    <h4><strong> Rating: </strong><span class="label label-success">{{ctrl.selectedSurvey.rating}}</span></h4>
 
-        <div ng-repeat="question in ctrl.selectedSurvey.questions">
-          <p><b>{{question.title}}</b><span class="label label-info">{{question.choices.length}}</span></p>
-          <p>
-          <span ng-repeat="choice in question.choices"><input type="radio" name="{{question.qid}}" value="{{choice}}">{{choice}}</span>
-          </p>
-        </div>
+    <div class="row marketing">
+      <div class="col-lg-6">
+        <h4>Subhea</h4>
+        <p>Donec id el porta gravida at eget metus. Maecenas
+          faucibus mollis interdum.</p>
 
+        <h4>Subheading2</h4>
+        <p>Morbi leo risus,xxx purus sit amet fermentum.</p>
+
+        <h4>Subheading3</h4>
+        <p>Maecenas sed xxxmagna.</p>
+      </div>
+
+      <div class="col-lg-6">
+        <h4>Subheading4</h4>
+        <p>Donec id elit non mi porta gravida at eget metus.
+          Maecenas faucibus mollis interdum.</p>
+
+        <h4>Subheading5</h4>
+        <p>Morbi leo risua ac consectetur ac, vestibulum at eros.
+          Cras mattis consectetur purus sit amet fermentum.</p>
+
+        <h4>Subheading6</h4>
+        <p>Maecenas sed diam eget risus varius blandit sit amet non
+          magna.</p>
+      </div>
     </div>
+
+    <div class="footer">
+      <p>&copy; Company 2014</p>
     </div>
   </div>
-      
-  <div class="row marketing">
-        <div class="col-lg-6">
-          <h4>Subhea</h4>
-          <p>Donec id el porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
 
-          <h4>Subheading2</h4>
-          <p>Morbi leo risus,xxx purus sit amet fermentum.</p>
-
-          <h4>Subheading3</h4>
-          <p>Maecenas sed xxxmagna.</p>
-        </div>
-
-        <div class="col-lg-6">
-          <h4>Subheading4</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading5</h4>
-          <p>Morbi leo risua ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading6</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-      </div>
-
-      <div class="footer">
-        <p>&copy; Company 2014</p>
-      </div>
-</div>
-  
-    <script src="packages/shadow_dom/shadow_dom.min.js"></script>
-    <script type="application/dart" src="survey.dart"></script>
-    <script src="packages/browser/dart.js"></script>
-  </body>
+  <script src="packages/shadow_dom/shadow_dom.min.js"></script>
+  <script type="application/dart" src="survey.dart"></script>
+  <script src="packages/browser/dart.js"></script>
+</body>
 </html>

@@ -30,7 +30,7 @@ class SurveyController {
         ..future.then((results) {
           print(results[0].data);
           categories = results[0].data;
-          surveys = results[1].data.map((d)=> new Survey.fromJson(d)).toList();
+          surveys = results[1].data.map((d) => new Survey.fromJson(d)).toList();
         });
 
   }
@@ -40,7 +40,7 @@ class Question {
   String title;
   List<String> choices;
   Question(this.title, this.choices);
-  
+
   String get qid => 'question${this.hashCode}';
 
   Map<String, dynamic> toJson() => <String, dynamic> {
@@ -64,8 +64,7 @@ class Survey {
     "rating": rating
   };
 
-  Survey.fromJson(Map<String, dynamic> json): this(json['name'], 
-      json['category'], json['questions'].map((m)=>new Question.fromJson(m)).toList(), json['rating']);
+  Survey.fromJson(Map<String, dynamic> json): this(json['name'], json['category'], json['questions'].map((m) => new Question.fromJson(m)).toList(), json['rating']);
 }
 
 class MyAppModule extends Module {
