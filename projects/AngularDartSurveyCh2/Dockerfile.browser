@@ -1,0 +1,46 @@
+FROM ubuntu:14.04
+
+# Update OS.
+RUN sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list
+RUN apt-get update
+RUN apt-get -y upgrade
+
+# Install basic packages.
+RUN apt-get install -y software-properties-common
+RUN apt-get install -y curl git htop unzip vim wget
+
+# Install Node.js
+RUN add-apt-repository -y ppa:chris-lea/node.js
+RUN apt-get update
+RUN apt-get install -y nodejs
+
+# Install dart
+RUN wget http://storage.googleapis.com/dart-archive/channels/stable/release/latest/editor/darteditor-linux-x64.zip
+RUN unzip -q darteditor-linux-x64.zip -d /root
+ENV DART_SDK /root/dart/dart-sdk/bin
+ENV PATH $DART_SDK:$PATH
+
+# Install firefox
+RUN add-apt-repository -y ppa:mozillateam/firefox-next
+RUN apt-get -y update && apt-get install -y -q firefox openjdk-7-jre-headless
+
+# xvfb
+RUN apt-get -y --force-yes -q install xvfb x11-xkb-utils xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic
+
+# chromdriver
+RUN apt-get -y --force-yes -q install wget unzip && \
+      cd /tmp && curl -L -O http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip && \
+      unzip /tmp/chromedriver_linux64.zip -d /usr/local/bin && \
+      chmod a+x /usr/local/bin/chromedriver
+
+# Chrome
+RUN apt-get -y --force-yes -q install wget && \
+      wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - && \
+      echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list && \
+      echo "deb http://security.ubuntu.com/ubuntu trusty-security main" >> /etc/apt/sources.list && \
+      apt-get update && \
+      apt-get install -y --force-yes -q google-chrome-stable
+
+ENV DART_SDK /root/dart/dart-sdk
+ENV PATH $PATH:$DART_SDK/bin
+CMD ["dart"]
