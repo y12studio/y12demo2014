@@ -1,8 +1,23 @@
-## Headless Browser Unit Tests
+## dart content_shell dart test[Failure to run on ubuntu 12.04/13.10/14.04]
 
 [browser_unittest.dart/.travis.yml at master · Mixbook/browser_unittest.dart](https://github.com/Mixbook/browser_unittest.dart/blob/master/.travis.yml)
 
+```
+$ sudo docker.io build -t="test/dartdev" .
+$ sudo docker.io run -i -t test/dartdev  dart --version
+Dart VM version: 1.3.3 (Wed Apr 16 12:23:40 2014) on "linux_x64"
+$ sudo docker.io run -i -t test/dartdev /bin/bash
+# echo $PATH
+/root/dart/dart-sdk/bin:/root/dart/dart-sdk/bin/content_shell:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
+# content_shell --dump-render-tree google.com
+content_shell: error while loading shared libraries: libudev.so.0: cannot open shared object file: No such file or directory
+root@7196d83535b6:~# apt-get install -y libudev0
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+E: Unable to locate package libudev0
+```
 ## Karma-dart on Win7_x64
 
 [karma-runner/karma-dart](https://github.com/karma-runner/karma-dart)
