@@ -5,7 +5,7 @@ run(){
     test('outer test 1', () => print('outer test 1'));
     setUp(() => print('outer setup 1'));
     tearDown(() => print('outer teardown 1'));
-    test('outer test 2',  ()=>expect(0, equals(1)));
+    test('outer test 2',  ()=>expect(0, equals(0)));
     setUp(() => print('outer setup 2'));
     tearDown(() => print('outer teardown 2'));
     test('outer test 3', () => print('outer test 3'));
