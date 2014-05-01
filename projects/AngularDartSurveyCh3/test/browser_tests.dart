@@ -1,7 +1,10 @@
+// Copyright (c) 2014, y12studio.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// Apache license.
 import 'package:unittest/html_enhanced_config.dart';
 import 'package:unittest/unittest.dart';
 
-run() {
+testGroupFoo() {
   group('outer', () {
     test('outer test 1', () => print('outer test 1'));
     setUp(() => print('outer setup 1'));
@@ -20,9 +23,10 @@ run() {
       setUp(() => print('inner setup 3'));
     });
   });
+   
 }
 
 main() {
   useHtmlEnhancedConfiguration();
-  run();
+  testGroupFoo();
 }
